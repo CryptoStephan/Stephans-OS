@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.woff2 binary
+# Preserve formatting of attributed upstream runtime sources.
+public/runtime/lotw/sys/** -whitespace
+public/runtime/lotw/mods/** -whitespace
+public/runtime/lotw/coms/** -whitespace

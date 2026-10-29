@@ -1,40 +1,18 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { FileSystemProvider } from "@/contexts/FileSystemContext";
-
-const inter = Inter({ subsets: ['latin'] });
-
+import "./globals.css";
+import "@/components/os/apps/apps.css";
+import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: 'StephOS',
-  description: 'Created by Stephan Volynets',
+  title: "Stephan’s OS — your browser, a little more personal",
+  description:
+    "A personal desktop with a real LOTW shell, persistent files, and a place to make things.",
+  icons: { icon: "/favi-32x32.png" },
 };
-
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link type="image/png" sizes="16x16" rel="icon" href="/favi-16x16.png" />
-        <link type="image/png" sizes="32x32" rel="icon" href="/favi-32x32.png" />
-        {/* Can add more favicon sizes if needed */}
-      </head>
-      <body className={`${inter.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
-          enableSystem={false}
-        >
-          <FileSystemProvider>
-            {children}
-          </FileSystemProvider>
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
